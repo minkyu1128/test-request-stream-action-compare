@@ -10,7 +10,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -20,18 +20,20 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-aop'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 
     //--------------------------------------------------------
     // tomcat 사용
     //--------------------------------------------------------
-//    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     //--------------------------------------------------------
     // undertow 사용
     //--------------------------------------------------------
-    implementation ('org.springframework.boot:spring-boot-starter-web') {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-    }
-    implementation 'org.springframework.boot:spring-boot-starter-undertow'
+//    implementation ('org.springframework.boot:spring-boot-starter-web') {
+//        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+//    }
+//    implementation 'org.springframework.boot:spring-boot-starter-undertow'
 }
 
 tasks.named('test') {
